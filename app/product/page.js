@@ -184,7 +184,7 @@ export default function ProductPage() {
                   key={p.id}
                   className="bg-white p-6 rounded-2xl border border-teal-100 hover:border-orange-300 hover:shadow-xl transition flex flex-col"
                 >
-                  <div className="h-48 rounded-xl overflow-hidden border border-teal-100 mb-4">
+                  <div className="relative h-48 rounded-xl overflow-hidden border border-teal-100 mb-4">
                     <Image
                       src={p.image}
                       alt={p.name}

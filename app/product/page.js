@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const products = [
   {
@@ -51,8 +51,35 @@ export default function ProductPage() {
   const [cart, setCart] = useState([]);
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    try {
+      setCart(JSON.parse(localStorage.getItem("puzzlepaws_cart") || "[]"));
+    } catch {
+      setCart([]);
+    }
+  }, []);
+
+  const getCart = () => {
+    try {
+      return JSON.parse(localStorage.getItem("puzzlepaws_cart") || "[]");
+    } catch {
+      return [];
+    }
+  };
+
   const addToCart = (product) => {
-    setCart((prev) => [...prev, product]);
+    const prev = getCart();
+    const existing = prev.find((c) => c.id === product.id);
+    let next;
+    if (existing) {
+      next = prev.map((c) =>
+        c.id === product.id ? { ...c, qty: (c.qty || 1) + 1 } : c
+      );
+    } else {
+      next = [...prev, { ...product, qty: 1 }];
+    }
+    localStorage.setItem("puzzlepaws_cart", JSON.stringify(next));
+    setCart(next);
     setOpen(true);
   };
 

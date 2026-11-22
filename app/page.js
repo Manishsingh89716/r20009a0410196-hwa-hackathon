@@ -14,6 +14,7 @@ export default function Home() {
               <a href="#hero" className="hover:text-teal-900 transition">Home</a>
               <a href="#levels" className="hover:text-teal-900 transition">Levels</a>
               <a href="#lifestyle" className="hover:text-teal-900 transition">Lifestyle</a>
+              <a href="/product" className="hover:text-teal-900 transition">Product</a>
               <a href="#order" className="bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition">Order</a>
             </div>
             <button className="md:hidden text-teal-600">☰</button>

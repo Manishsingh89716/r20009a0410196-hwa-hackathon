@@ -137,7 +137,9 @@ export default function Home() {
             <Image
               src="/images/closeup.webp"
               alt="Close-up of treat slots"
-              className="w-full h-96 object-cover rounded-2xl shadow-xl border border-teal-100"
+              fill
+              sizes="(max-width: 768px) 100vw, 80vw"
+              className="object-cover rounded-2xl shadow-xl border border-teal-100"
               priority
             />
             <div className="absolute inset-0 flex items-center justify-center">
